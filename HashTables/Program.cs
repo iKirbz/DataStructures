@@ -11,7 +11,7 @@ namespace HashTables
     {
         static void Main(string[] args)
         {
-            int length = 100000;
+            int length = 1000000;
 
             List<Person> list = new List<Person>();
             Dictionary<string, Person> dict = new Dictionary<string, Person>();
@@ -74,7 +74,8 @@ namespace HashTables
                 watch.Stop();
 
                 //Calculates the microseconds the operation took
-                Console.WriteLine($"{watch.ElapsedTicks / (Stopwatch.Frequency / (1000L * 1000L))} microseconds for {result.name}");
+                string microseconds = (watch.ElapsedTicks / (Stopwatch.Frequency / (1000L * 1000L))).ToString("D4");
+                Console.WriteLine($"{microseconds} microseconds - {result.name}");
                 watch.Reset();
             }
         }
@@ -92,7 +93,8 @@ namespace HashTables
                 watch.Stop();
 
                 //Gets the microseconds the operation took
-                Console.WriteLine($"{watch.ElapsedTicks / (Stopwatch.Frequency / (1000L * 1000L))} microseconds for {result.name}");
+                string microseconds = (watch.ElapsedTicks / (Stopwatch.Frequency / (1000L * 1000L))).ToString("D2");
+                Console.WriteLine($"{microseconds} microseconds - {result.name}");
                 watch.Reset();
             }
         }
