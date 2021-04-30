@@ -11,7 +11,7 @@ namespace HashTables
     {
         static void Main(string[] args)
         {
-            int length = 1000000;
+            int length = 100000;
 
             List<Person> list = new List<Person>();
             Dictionary<string, Person> dict = new Dictionary<string, Person>();
@@ -35,8 +35,11 @@ namespace HashTables
         private static void FillCollections(List<Person> list, Dictionary<string, Person> dict, int length)
         {
             Console.WriteLine("Generating People...");
+
+            //Fills the collection with people from the range 0 -> length
             for (int i = 0; i < length; i++)
             {
+                //Names of the people is "Person" + i
                 string name = $"Person{i}";
                 list.Add(new Person() { id = i, name = name });
                 dict.Add(name, new Person() { id = i, name = name });
@@ -49,6 +52,7 @@ namespace HashTables
 
             Random rnd = new Random();
 
+            //Generate 'amount' amount of random people names within the range of 0 -> length
             for (int i = 0; i < amount; i++)
             {
                 people[i] = $"Person{rnd.Next(0, length)}";
@@ -69,7 +73,8 @@ namespace HashTables
                 Person result = list.Find(element => element.name == person);
                 watch.Stop();
 
-                Console.WriteLine($"{watch.ElapsedTicks / (Stopwatch.Frequency / (1000L * 1000L))} mircoseconds for {result.name}");
+                //Calculates the microseconds the operation took
+                Console.WriteLine($"{watch.ElapsedTicks / (Stopwatch.Frequency / (1000L * 1000L))} microseconds for {result.name}");
                 watch.Reset();
             }
         }
@@ -86,6 +91,7 @@ namespace HashTables
                 Person result = dict[person];
                 watch.Stop();
 
+                //Gets the microseconds the operation took
                 Console.WriteLine($"{watch.ElapsedTicks / (Stopwatch.Frequency / (1000L * 1000L))} microseconds for {result.name}");
                 watch.Reset();
             }
