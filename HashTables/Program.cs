@@ -48,14 +48,24 @@ namespace HashTables
 
         private static string[] GetRandomPeople(int amount, int length)
         {
-            string[] people = new string[amount];
+            int[] numbers = new int[amount];
 
             Random rnd = new Random();
 
-            //Generate 'amount' amount of random people names within the range of 0 -> length
+            //Generate 'amount' amount of random numbers within the range of 0 -> length (amount of people)
             for (int i = 0; i < amount; i++)
             {
-                people[i] = $"Person{rnd.Next(0, length)}";
+                numbers[i] = rnd.Next(0, length);
+            }
+
+            Array.Sort(numbers);
+
+            //Prepend numbers with 'Person' prefix
+            string[] people = new string[amount];
+
+            for (int i = 0; i < amount; i++)
+            {
+                people[i] = $"Person{numbers[i]}";
             }
 
             return people;
