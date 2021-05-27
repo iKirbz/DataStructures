@@ -8,18 +8,18 @@ namespace Trees
 {
     class Tree<T>
     {
-        public Tree<T> Parent;
-        public T Data;
+        public Tree<T> parent;
+        public T data;
         public List<Tree<T>> children = new List<Tree<T>>();
 
         public Tree(T data)
         {
-            this.Data = data;
+            this.data = data;
         }
 
         public void AddChild(T data)
         {
-            Tree<T> child = new Tree<T>(data) { Parent = this };
+            Tree<T> child = new Tree<T>(data) { parent = this };
             children.Add(child);
         }
 
@@ -31,7 +31,7 @@ namespace Trees
         public void PrintTree(int i = 0)
         {
             string indent = new string(' ', i*8);
-            Console.WriteLine(indent + Data);
+            Console.WriteLine(indent + data);
 
             i++;
 

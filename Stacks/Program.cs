@@ -11,7 +11,7 @@ namespace Stacks
     {
         static void Main(string[] args)
         {
-            Stack<int> myStack = new Stack<int>(new int[] { 2, 3, 1, 5, 4 });
+            Stack<int> myStack = new Stack<int>(new int[] { 1, 2, 3, 4, 5, 6 });
 
             foreach (int item in myStack)
             {
@@ -20,13 +20,16 @@ namespace Stacks
 
             Console.WriteLine();
 
-            myStack.Pop();
-
+            Console.WriteLine("\n" + "Push 7");
+            myStack.Push(7);
             Console.WriteLine(String.Join(", ", myStack));
 
-            myStack.Clear();
+            Console.WriteLine("\n" + "Pop");
+            myStack.Pop();
+            Console.WriteLine(String.Join(", ", myStack));
 
-            Console.WriteLine("Clearing stack...");
+            Console.WriteLine("\n" + "Clearing stack...");
+            myStack.Clear();
             Console.WriteLine($"Element count: {myStack.Count}");
 
             Console.ReadLine();

@@ -38,16 +38,6 @@ namespace Trees
             //Printing tree
             t.PrintTree();
 
-            Console.WriteLine("\n\n");
-
-
-            //Removing child
-            Tree<string> node = t.children[1];
-            t.RemoveChild(node);
-
-            Console.WriteLine("Removing child B..." + "\n");
-
-            t.PrintTree();
 
             Console.ReadLine();
         }
